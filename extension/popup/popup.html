@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Baseera Security Scanner</title>
+  <link rel="stylesheet" href="popup.css">
+</head>
+<body>
+  <div class="container">
+    <!-- Header - الرأسية -->
+    <div class="header">
+      <div class="logo">
+        <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z" />
+        </svg>
+        <h1>Baseera Security</h1>
+      </div>
+    </div>
+
+    <!-- Ready State - حالة الاستعداد -->
+    <div id="readyState" class="state">
+      <div class="state-content">
+        <p class="subtitle">Ready to scan for vulnerabilities</p>
+        <p class="subtitle-ar">جاهز للفحص عن الثغرات</p>
+        <button id="startScanBtn" class="btn btn-primary">
+          <span>Start Scan - ابدأ الفحص</span>
+        </button>
+      </div>
+    </div>
+
+    <!-- Scanning State - حالة الفحص -->
+    <div id="scanningState" class="state hidden">
+      <div class="state-content">
+        <div class="spinner"></div>
+        <p class="subtitle">Scanning in progress...</p>
+        <p class="subtitle-ar">الفحص جارٍ...</p>
+        <div class="progress-bar">
+          <div id="progressBar" class="progress-fill"></div>
+        </div>
+        <p id="scannerName" class="scanner-name"></p>
+      </div>
+    </div>
+
+    <!-- Results State - حالة النتائج -->
+    <div id="resultsState" class="state hidden">
+      <div class="results-summary">
+        <div class="summary-card critical">
+          <div class="count" id="criticalCount">0</div>
+          <div class="label">Critical - حرج</div>
+        </div>
+        <div class="summary-card high">
+          <div class="count" id="highCount">0</div>
+          <div class="label">High - عالي</div>
+        </div>
+        <div class="summary-card medium">
+          <div class="count" id="mediumCount">0</div>
+          <div class="label">Medium - متوسط</div>
+        </div>
+        <div class="summary-card low">
+          <div class="count" id="lowCount">0</div>
+          <div class="label">Low - منخفض</div>
+        </div>
+      </div>
+      
+      <div class="actions">
+        <button id="rescanBtn" class="btn btn-secondary">
+          <span>Rescan - إعادة الفحص</span>
+        </button>
+        <button id="dashboardBtn" class="btn btn-primary">
+          <span>View Dashboard - لوحة التحكم</span>
+        </button>
+      </div>
+    </div>
+
+    <!-- Settings State - حالة الإعدادات -->
+    <div id="settingsState" class="state hidden">
+      <div class="settings-content">
+        <h3>Settings - الإعدادات</h3>
+        <div class="setting-item">
+          <label>
+            <input type="checkbox" id="autoScan" />
+            <span>Auto-scan on page load - فحص تلقائي عند تحميل الصفحة</span>
+          </label>
+        </div>
+        <div class="setting-item">
+          <label>
+            <input type="checkbox" id="notifications" />
+            <span>Show notifications - عرض الإشعارات</span>
+          </label>
+        </div>
+        <div class="setting-item">
+          <label>Account Status - حالة الحساب</label>
+          <button id="loginBtn" class="btn btn-secondary">Login - تسجيل الدخول</button>
+        </div>
+        <button id="backBtn" class="btn btn-secondary">Back - رجوع</button>
+      </div>
+    </div>
+
+    <!-- Footer - التذييل -->
+    <div class="footer">
+      <button id="settingsBtn" class="icon-btn" title="Settings">⚙️</button>
+      <span class="version">v1.0.0</span>
+    </div>
+  </div>
+
+  <script type="module" src="popup.js"></script>
+</body>
+</html>
