@@ -140,10 +140,10 @@ const Dashboard = () => {
                       <td className="py-3 px-4 text-white">{scan.riskScore.toFixed(1)}</td>
                       <td className="py-3 px-4">
                         <button
-                          onClick={() => navigate(`/scan/${scan.id}`)}
                           className="px-3 py-1 bg-primary/20 text-primary rounded hover:bg-primary/30 transition text-sm"
+                          title="View details in extension or export"
                         >
-                          View
+                          Details
                         </button>
                       </td>
                     </tr>

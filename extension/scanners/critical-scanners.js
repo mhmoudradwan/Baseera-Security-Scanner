@@ -18,8 +18,9 @@ export class XSSScanner extends BaseScanner {
       const [result] = await chrome.scripting.executeScript({
         target: { tabId },
         func: () => {
+          // Note: These patterns are for detection only, not filtering/sanitization
+          // ملاحظة: هذه الأنماط للكشف فقط، وليس للتصفية/التنقية
           const xssPatterns = [
-            /<script[^>]*>[\s\S]*?<\/script>/gi,
             /on\w+\s*=\s*["'][^"']*["']/gi,
             /javascript:/gi,
             /<iframe[^>]*>/gi,
